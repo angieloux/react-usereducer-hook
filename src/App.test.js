@@ -2,8 +2,8 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders basic empty template', () => {
+test('renders Recent Projects', () => {
   const { getByText } = render(<App />);
-  const linkElement = getByText(/basic empty template/i);
+  const linkElement = getByText(/Recent Projects/i);
   expect(linkElement).toBeInTheDocument();
 });
