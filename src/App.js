@@ -16,16 +16,12 @@ const App = () => {
 	function addProject(project) {
 		// add new project to the front and add to copied, spreaded array of projects 
 		dispatch({
-			type: 'setProjects',
-			data: [project, ...projects]
+			type: 'addProject',
+			data: project
 		})
 		
 	}
 	
-	// this will return array with 2 elements, 1. list of projects stored as state and 2. a method called setProjects to amend projects
-	// setProjects under the covers is calling setState
-	// const [projects, setProjects] = useState(initialProjects)
-
 	// by default, without [] this will fire every time the component renders or updates, so to be safe the useEffect should always be started with empty array at the end
 	// this will override the componentDidmount lifecycle method
 	useEffect(() => {
