@@ -1,5 +1,6 @@
-# React Hooks (Project List)
-The below was a lesson on React Hooks in which I refactored the provided code in a simple app (Project List) to use the `useState` and `useEffect` hooks so as to implement state and lifecycle management with functional components.
+# React: useReducer Hook (Project List)
+The below is a refactoring of a previous challenge I completed [here](https://github.com/angieloux/react-hooks). 
+I have refactored the previous app to use the `useReducer` hook to garner an understanding of how it works.
 
 <hr>
 
