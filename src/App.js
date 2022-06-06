@@ -1,10 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Heading} from './Styled'
 import NewProjectForm from './NewProjectForm'
 import ProjectList from './ProjectList'
 
 const App = () => {
-	const projects = [
+	const initialProjects = [ // this represents initial state value for app
 		{
 			name: "Sets",
 			description: "A React version of the popular logic game"
@@ -18,6 +18,10 @@ const App = () => {
 			description: "A full stack app using AWS lambda for serverless backend that showcases the photography of a client"
 		}
 	]
+	// this will return array with 2 elements, 1. list of projects stored as state and 2. a method called setProjects to amend projects
+	const [projects, setProjects] = useState(initialProjects)
+
+
 	return (
 		<div >
 			<Heading>Recent Projects</Heading>
