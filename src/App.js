@@ -1,24 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {Heading} from './Styled'
 import NewProjectForm from './NewProjectForm'
 import ProjectList from './ProjectList'
 
 const App = () => {
-	const initialProjects = [ // this represents initial state value for app
-		{
-			name: "Sets",
-			description: "A React version of the popular logic game"
-		},
-		{
-			name: "Chore Tracker",
-			description: "A full stack app to track chores completed and money earned"
-		},
-		{
-			name: "Fotozu",
-			description: "A full stack app using AWS lambda for serverless backend that showcases the photography of a client"
-		}
-	]
-
+	// this represents initial state value for app
+	const initialProjects = [] 
 	function addProject(project) {
 		// add new project to the front and add to copied, spreaded array of projects (that is stored as state) 
 		setProjects([project, ...projects]) // setProjects is returned by useState
@@ -28,6 +15,18 @@ const App = () => {
 	// setProjects under the covers is calling setState
 	const [projects, setProjects] = useState(initialProjects)
 
+	// by default, without [] this will fire every time the component renders or updates, so to be safe the useEffect should always be started with empty array at the end
+	// this will override the componentDidmount lifecycle method
+	useEffect(() => {
+		fetch('projects.json', { // fetch returns a promise
+			headers : {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json'
+			}
+		})
+		.then((response) => response.json())
+		.then((projects) => setProjects(projects))
+	}, [])
 
 	return (
 		<div >
